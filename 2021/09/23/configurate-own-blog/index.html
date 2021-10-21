@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+
+
+  <meta name="description" content="PrefaceFirst, I deploy my personal blog in Archlinux, so , if you use other systems, you should refer to other blog.You should install nodejs, npm, cnpm, hexo and some related packages.You don’t need">
+<meta property="og:type" content="article">
+<meta property="og:title" content="个人博客的配置">
+<meta property="og:url" content="http://example.com/2021/09/23/configurate-own-blog/index.html">
+<meta property="og:site_name" content="Sayno">
+<meta property="og:description" content="PrefaceFirst, I deploy my personal blog in Archlinux, so , if you use other systems, you should refer to other blog.You should install nodejs, npm, cnpm, hexo and some related packages.You don’t need">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/09/23/configurate-own-blog/first.png">
+<meta property="og:image" content="http://example.com/2021/09/23/configurate-own-blog/second.png">
+<meta property="og:image" content="http://example.com/2021/09/23/configurate-own-blog/third.png">
+<meta property="og:image" content="http://example.com/2021/09/23/configurate-own-blog/fourth.png">
+<meta property="og:image" content="http://example.com/2021/09/23/configurate-own-blog/fifth.png">
+<meta property="og:image" content="http://example.com/2021/09/23/configurate-own-blog/sixth.png">
+<meta property="og:image" content="http://example.com/2021/09/23/configurate-own-blog/seventh.png">
+<meta property="og:image" content="http://example.com/2021/09/23/configurate-own-blog/eighth.png">
+<meta property="og:image" content="http://example.com/2021/09/23/configurate-own-blog/eleventh.png">
+<meta property="og:image" content="http://example.com/2021/09/23/configurate-own-blog/ninth.png">
+<meta property="article:published_time" content="2021-09-23T13:03:47.000Z">
+<meta property="article:modified_time" content="2021-10-10T16:28:21.810Z">
+<meta property="article:author" content="Sayno">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/09/23/configurate-own-blog/first.png">
+
+<link rel="canonical" href="http://example.com/2021/09/23/configurate-own-blog/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+
+  <title>个人博客的配置 | Sayno</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+  <a target="_blank" rel="noopener" href="https://github.com/ssayno/ssayno.github.io.git" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Sayno</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Every rule can be broken, as long as you are aware that you are breaking a rule.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/23/configurate-own-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Sayno">
+      <meta itemprop="description" content="Learning process">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sayno">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          个人博客的配置
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-23 21:03:47" itemprop="dateCreated datePublished" datetime="2021-09-23T21:03:47+08:00">2021-09-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-11 00:28:21" itemprop="dateModified" datetime="2021-10-11T00:28:21+08:00">2021-10-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>5.9k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>5 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>First, I deploy my personal blog in <code>Archlinux</code>, so , if you use other systems, you should refer to other blog.<br>You should install <code>nodejs, npm, cnpm, hexo</code> and some related packages.<br><strong>You don’t need to use <code>sudo</code> to install, or you will need root to write the <code>.md</code>.</strong></p>
+<span id="more"></span>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><h3 id="Step-One"><a href="#Step-One" class="headerlink" title="Step One"></a>Step One</h3><p>You should get a <a target="_blank" rel="noopener" href="https://github.com/">Github</a> account. If you don’t know how to register it, you can use search engine to learn how to register.</p>
+<h3 id="Step-Two"><a href="#Step-Two" class="headerlink" title="Step Two"></a>Step Two</h3><p>You should install <code>git</code> use command as following</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S git</span><br></pre></td></tr></table></figure>
+<p>then you should config your git use command <strong>following</strong></p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">config</span> <span class="comment">--global user.name &quot;your github name&quot;</span></span><br><span class="line">git <span class="built_in">config</span> <span class="comment">--global user.email &lt;E-mail&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>&lt;E-mail&gt; is you github E-mail.</strong><br>then you can use <code>git config --list</code> to see the result.</p>
+<h3 id="Step-Three"><a href="#Step-Three" class="headerlink" title="Step Three"></a>Step Three</h3><p>You should generate and add <code>ssh</code> on you github.<br>First, you should need <code>ssh-keygen -t rsa -C &lt;Email&gt;</code>, then you can will get a invisible directory. In Linux, it on the main directory called <code>.ssh/</code>, in this directory, it has a file called <code>id_rsa.pub</code>.</p>
+<ul>
+<li>Copy its contents.</li>
+<li>Open your github setting, find the <code>SSH and GPG keys</code>, click the <strong>New SSH key</strong> to add new <code>SSH</code>.</li>
+<li>You should check if you add successfully.</li>
+<li>You use command <code>ssh -T git@github.com</code> to se the results. If your results just like following, you add successfully.<br><img src="/2021/09/23/configurate-own-blog/first.png" alt="error"></li>
+</ul>
+<h3 id="Step-Four"><a href="#Step-Four" class="headerlink" title="Step Four"></a>Step Four</h3><ul>
+<li>You should install nodejs and npm<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S nodejs npm</span><br></pre></td></tr></table></figure></li>
+<li>After, you should use <code>node -v</code> and <code>npm -v</code> to check their version, </li>
+</ul>
+<div style="text-align: center;">
+<img src="/2021/09/23/configurate-own-blog/second.png">
+</div>
+
+<ul>
+<li>If there are some warning, you should try it again, if they also has other issue, you can use the google engine.</li>
+<li>You should use npm to install cnpm<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm</span><br></pre></td></tr></table></figure></li>
+<li>But it will be slow, so you can use the repository from <code>taobao</code>, then use<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+to install cnpm, also use <code>cnpm -v</code> to check if it is installed.</li>
+</ul>
+<div style="text-align: center;">
+<img src="/2021/09/23/configurate-own-blog/third.png">
+</div>
+
+<ul>
+<li>You should use cnpm to install hexo<br>You can use <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm installl -g hexo-cil</span><br></pre></td></tr></table></figure>
+to install <code>hexo</code> globally, also use <code>hexo -v</code> to check if <code>hexo</code> is installed.</li>
+</ul>
+<div style="text-align: center;">
+<img src="/2021/09/23/configurate-own-blog/fourth.png">
+</div>
+
+<ul>
+<li>Make a new directory to save your blogs<br>For me, <code>mkdir Blogs &amp;&amp; cd Blogs</code> to make a new directory and use it, then use command <code>hexo init &lt;username&gt;.github.io</code> to initialize a new directory.<code>&lt;username&gt;</code> is the name of your github.(Not neccessary, but recommend). I will introduce how to register a github account and add <code>ssh</code> to connent. Then, use <code>c d &lt;username&gt;.github.io</code> get into the directory.</li>
+<li>See the blog<br><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code> and you can open <code>localhost:4000</code> to see the blog, you should use <code>Ctrl+c</code> to stop, if you can open it, use <code>hexo s -p 5000</code> open the web on the <code>port 5000</code>.</li>
+<li>Write a new blog<br>Use <code>hexo n &quot;first&quot;</code> to get a new blog. Then use <code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code> to flush the blog.  <h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2>After install the <code>hexo</code>, you can see your own blog on localhost, but you should upload to the web so that other peoples can visit your blog. And you can install different themes to make your blog more beautiful.<h3 id="Upload-to-the-web"><a href="#Upload-to-the-web" class="headerlink" title="Upload to the web"></a>Upload to the web</h3>Open the config file in the <code>blog/&lt;username&gt;.github.io</code> directory called <code>_config.yml</code>.</li>
+</ul>
+<div style="text-align: center">
+<img src="/2021/09/23/configurate-own-blog/fifth.png">
+</div>
+
+<p>At the end of the file, you can add code as follow:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Deployment</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Docs: https://hexo.io/docs/one-command-deployment</span></span></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo:</span><br><span class="line">    github: git@github.com:&lt;username&gt;/ssayno.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>You should note that, the <strong><username></username></strong> is your github name, it is mentioned above.</p>
+<h4 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h4><p>In your file just has</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Deployment</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Docs: https://hexo.io/docs/one-command-deployment</span></span></span><br><span class="line">deploy:</span><br><span class="line">  type: &#x27;&#x27;</span><br></pre></td></tr></table></figure>
+<p>at the end of your file. When your get the github address, recommend to use <code>ssh</code></p>
+<div style="text-align: center">
+<img src="/2021/09/23/configurate-own-blog/sixth.png">
+</div>
+
+<p>After this, your can use command</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<p>to upload your blog on the web, you can use <code>&lt;username&gt;.github.io</code> to access to your blog.(After you upload, it is’t upload immediately, you should wait with patience.</p>
+<h3 id="Load-the-theme"><a href="#Load-the-theme" class="headerlink" title="Load the theme"></a>Load the theme</h3><p>In my opinion, I choose the <code>next</code> for my blog. You can access to the <a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next">theme</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd blog/&lt;username&gt;.github.io</span><br><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<p>then the theme is installed on the <code>themes</code> directory. Then you config your own blog basiclly.</p>
+<h3 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h3><p>Open the <code>_config.yml</code> in your <code>&lt;usrname&gt;.github.io</code>, change the theme to <code>next</code>, then you get <code>next</code> theme, you also can change your own other configuration. I will introduce them to you soonly.</p>
+<h4 id="Open-the-copy-board"><a href="#Open-the-copy-board" class="headerlink" title="Open the copy board"></a>Open the copy board</h4><p>In the picture as follow(<del>In your root(not sudo) directory <code>_config.yml</code> in you theme’s directory <code>\themes\next\_config.yml</code>)</del></p>
+<div style="text-align: center">
+<img src="/2021/09/23/configurate-own-blog/seventh.png">
+</div>
+
+<p>The yellow line is choose your code block style, you can attemp to choose it to see the result.<br>The red line is opening your copy board, if you want to give the message when you success to copy.</p>
+<h4 id="Config-your-own-information"><a href="#Config-your-own-information" class="headerlink" title="Config your own information"></a>Config your own information</h4><p>In the picture as follow(In the directory of your root) </p>
+<div style="text-align: center">
+<img src="/2021/09/23/configurate-own-blog/eighth.png">
+</div>
+
+<ul>
+<li><p>title</p>
+<ul>
+<li>The web name when you open in the browser</li>
+</ul>
+</li>
+<li><p>subtitle</p>
+<ul>
+<li>See the picture I will give.</li>
+</ul>
+</li>
+<li><p>desecription</p>
+<ul>
+<li>As above</li>
+</ul>
+</li>
+<li><p>author</p>
+<ul>
+<li>Your own name</li>
+</ul>
+</li>
+<li><p>language</p>
+<ul>
+<li>The language of you web page, if you want to configurate <code>chinese</code>, you can <code>language: zh-CN</code>, in some blogs, they recommend you use <code>zh-Hans</code>, but it is false, you can see the result, there are no <code>zh-Hans</code>.(Note that after the colon you should add a space)</li>
+</ul>
+<div style="text-align: center">
+<img src="/2021/09/23/configurate-own-blog/eleventh.png">
+</div></li>
+<li><p>This is my result</p>
+<div style="text-align: center">
+<img src="/2021/09/23/configurate-own-blog/ninth.png">
+</div></li>
+</ul>
+<h4 id="Use-footnotes-function"><a href="#Use-footnotes-function" class="headerlink" title="Use footnotes function"></a>Use footnotes function</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-footnotes --save</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">then you can use the footnotes function.(After you install this plugin, you will find the `quote` can use normal)</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">### Insert pictures when you write the blog</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#### First</span></span></span><br><span class="line">In general, you can&#x27;t render your picture when you first write the blog, you should install a plugin</span><br><span class="line">```shell</span><br><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+<p>and then modify the <code>_config.yml</code> by setting <code>post_asset_folder</code> to <code>true</code>.<br>Then you use <code>hexo n &quot;newblog&quot;</code> you can get a <code>newblog.md</code> and a <code>newblog</code> directory to storage your picture later.(Mean you should rewrite you blog before this)</p>
+<h5 id="Second"><a href="#Second" class="headerlink" title="Second"></a>Second</h5><p>I get an answer from the <code>Google</code>, you can use <code>PicGo</code> to put your picture to the Internet, in ArchLinux, a local software you can get to come true, <code>picgo-appimage</code>, if you are interested in this, you can refer to my <a target="_blank" rel="noopener" href="https://ssayno.github.io/2021/09/29/Archlinux-install-config/#more">blog</a>, you can know about it.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" <i class="fa fa-tag"></i># Linux</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/09/23/Summary-of-LaTeX/" rel="next" title="LaTeX一些小知识汇总">
+      LaTeX一些小知识汇总 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install"><span class="nav-number">1.1.</span> <span class="nav-text">Install</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-One"><span class="nav-number">1.1.1.</span> <span class="nav-text">Step One</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-Two"><span class="nav-number">1.1.2.</span> <span class="nav-text">Step Two</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-Three"><span class="nav-number">1.1.3.</span> <span class="nav-text">Step Three</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-Four"><span class="nav-number">1.1.4.</span> <span class="nav-text">Step Four</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Configuration"><span class="nav-number">1.2.</span> <span class="nav-text">Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Upload-to-the-web"><span class="nav-number">1.2.1.</span> <span class="nav-text">Upload to the web</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Note"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-the-theme"><span class="nav-number">1.2.2.</span> <span class="nav-text">Load the theme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Config"><span class="nav-number">1.2.3.</span> <span class="nav-text">Config</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Open-the-copy-board"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">Open the copy board</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Config-your-own-information"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">Config your own information</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Use-footnotes-function"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">Use footnotes function</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Second"><span class="nav-number">1.2.3.3.1.</span> <span class="nav-text">Second</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Sayno"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Sayno</p>
+  <div class="site-description" itemprop="description">Learning process</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ssayno" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ssayno" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ssayno@foxmail.com" title="E-Mail → mailto:ssayno@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://tex.stackexchange.com/users/247130/jiawei" title="TeX-S → https:&#x2F;&#x2F;tex.stackexchange.com&#x2F;users&#x2F;247130&#x2F;jiawei" rel="noopener" target="_blank"><i class="fa fa-tex fa-fw"></i>TeX-S</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://syvshc.github.io/" title="https:&#x2F;&#x2F;syvshc.github.io&#x2F;" rel="noopener" target="_blank">乙醇哥</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sayno</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">27k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">25 mins.</span>
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<!--
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div> -->
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共5k字</span>
+</div>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+</html>
