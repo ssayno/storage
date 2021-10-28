@@ -31,7 +31,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2021/10/16/LaTeX/1.png">
 <meta property="article:published_time" content="2021-10-16T14:06:53.000Z">
-<meta property="article:modified_time" content="2021-10-19T07:44:36.520Z">
+<meta property="article:modified_time" content="2021-10-28T06:43:18.097Z">
 <meta property="article:author" content="Sayno">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2021/10/16/LaTeX/1.png">
@@ -201,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-19 15:44:36" itemprop="dateModified" datetime="2021-10-19T15:44:36+08:00">2021-10-19</time>
+                <time title="Modified: 2021-10-28 14:43:18" itemprop="dateModified" datetime="2021-10-28T14:43:18+08:00">2021-10-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -223,7 +223,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2k</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -251,12 +251,18 @@
 <li>reftex</li>
 <li>pdf-tools</li>
 <li>neotree</li>
-<li>exec-path-from-shell<span id="more"></span></li>
+<li>exec-path-from-shell</li>
 </ol>
-<h2 id="use-package"><a href="#use-package" class="headerlink" title="use-package"></a>use-package</h2><p><code>use-package</code> is a tool that Convenient for you to use(manage) your package, just use it yestoday, may have some erro, I don’t know if it can use in other places.</p>
-<h3 id="auctex"><a href="#auctex" class="headerlink" title="auctex"></a>auctex</h3><p>All of my configuration about auctex from <a target="_blank" rel="noopener" href="https://www.gnu.org/software/auctex/manual/auctex.pdf">auctex</a>, after I config the basic configuration, I will upload my configuration to my <a target="_blank" rel="noopener" href="https://github.com/ssayno/semesterfive/tree/main/works/12">github</a>.(You can put this in the same directory as <code>init.el</code>, and add <code>(require &#39;mylatex)</code>, I am expend it now, so you may can’t use it. You should know how to change it. <strong>Anyway, he can run on my computer:-)</strong>)</p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>If you want, you can clone my configuration from <a target="_blank" rel="noopener" href="https://github.com/ssayno/test.git">here</a>. And frist you should install the plugin <code>use-package</code>, and then clone this in your <code>~/.emacs.d</code>, then you can write LaTeX in your emacs.</p>
+<span id="more"></span>
+<del>
+## use-package ##
+`use-package` is a tool that Convenient for you to use(manage) your package, just use it yestoday, may have some erro, I don't know if it can use in other places.
+### auctex ###
+All of my configuration about auctex from [auctex](https://www.gnu.org/software/auctex/manual/auctex.pdf), after I config the basic configuration, I will upload my configuration to my [github](https://github.com/ssayno/semesterfive/tree/main/works/12).(You can put this in the same directory as `init.el`, and add `(require 'mylatex)`, I am expend it now, so you may can't use it. You should know how to change it. **Anyway, he can run on my computer:-)**)
+
 <h3 id="cdlatex"><a href="#cdlatex" class="headerlink" title="cdlatex"></a>cdlatex</h3><p><code>cdlatex</code> offer many shortcuts to insert <code>LaTeX</code> command, you can use <kbd>C-c ?</kbd> to know them, and you can access its <a target="_blank" rel="noopener" href="https://github.com/cdominik/cdlatex">github</a> page for more information.<br><del></del></p>
-<h3 id="latex-preview-pane"><a href="#latex-preview-pane" class="headerlink" title="latex-preview-pane"></a>latex-preview-pane</h3><p>This plugin is used to get the concept of <code>what you see is what you get</code>, maybe this concept is rejected by someone, but it is useful for mathmatical formula sometimes.(I can config it to <code>--synctex=1</code>)</p>
+<h3 id="latex-preview-pane"><a href="#latex-preview-pane" class="headerlink" title="latex-preview-pane"></a>latex-preview-pane</h3><p>This plugin is used to get the concept of <code>what you see is what you get</code>, maybe this concept is rejected by someone, but it is useful for mathmatical formula sometimes.(I can config it to <code>--synctex=1</code>)</p></del><p></p>
 <h3 id="reftex"><a href="#reftex" class="headerlink" title="reftex"></a>reftex</h3><p>Used for cross-referencing.(But now I don’t need this, so I did’t configure this). Reftex have been bundled with Emacs, so you should install by youself.</p>
 <h3 id="pdf-tools"><a href="#pdf-tools" class="headerlink" title="pdf-tools"></a>pdf-tools</h3><p>When you use <code>preview</code> in <code>tex</code> file, Emacs will use <code>docview</code> to open the <code>pdf</code> file, but it is fuzzy, according to the guideline from <code>Google</code>, customize the <code>doc-view-resolution</code>, it will render this page lager. So you should install this plugin to make you <code>pdf</code> file clear. I install this plugin from this <a target="_blank" rel="noopener" href="https://github.com/politza/pdf-tools">github</a> page.</p>
 <h3 id="neotree"><a href="#neotree" class="headerlink" title="neotree"></a>neotree</h3><p>Use the sidebar from this <a target="_blank" rel="noopener" href="https://github.com/jaypei/emacs-neotree">github</a> page.</p>
@@ -264,9 +270,11 @@
 <div style="text-align: center;">
 <img src="/2021/10/16/LaTeX/1.png">
 </div>
+<del>
+you should install this plugin from this [github](https://github.com/purcell/exec-path-from-shell#exec-path-from-shell) page.
+(I forgot `Magit` these days. I will solve it for him tomorrow)
 
-<p>you should install this plugin from this <a target="_blank" rel="noopener" href="https://github.com/purcell/exec-path-from-shell#exec-path-from-shell">github</a> page.<br>(I forgot <code>Magit</code> these days. I will solve it for him tomorrow)</p>
-
+</del>
     </div>
 
     
@@ -343,7 +351,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Plugins"><span class="nav-number">1.1.</span> <span class="nav-text">Plugins</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#use-package"><span class="nav-number">1.2.</span> <span class="nav-text">use-package</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#auctex"><span class="nav-number">1.2.1.</span> <span class="nav-text">auctex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cdlatex"><span class="nav-number">1.2.2.</span> <span class="nav-text">cdlatex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#latex-preview-pane"><span class="nav-number">1.2.3.</span> <span class="nav-text">latex-preview-pane</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reftex"><span class="nav-number">1.2.4.</span> <span class="nav-text">reftex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pdf-tools"><span class="nav-number">1.2.5.</span> <span class="nav-text">pdf-tools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#neotree"><span class="nav-number">1.2.6.</span> <span class="nav-text">neotree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exec-path-from-shell"><span class="nav-number">1.2.7.</span> <span class="nav-text">exec-path-from-shell</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Plugins"><span class="nav-number">1.1.</span> <span class="nav-text">Plugins</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Usage"><span class="nav-number">1.2.</span> <span class="nav-text">Usage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cdlatex"><span class="nav-number">1.2.1.</span> <span class="nav-text">cdlatex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#latex-preview-pane"><span class="nav-number">1.2.2.</span> <span class="nav-text">latex-preview-pane</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reftex"><span class="nav-number">1.2.3.</span> <span class="nav-text">reftex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pdf-tools"><span class="nav-number">1.2.4.</span> <span class="nav-text">pdf-tools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#neotree"><span class="nav-number">1.2.5.</span> <span class="nav-text">neotree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exec-path-from-shell"><span class="nav-number">1.2.6.</span> <span class="nav-text">exec-path-from-shell</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -429,7 +437,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">27k</span>
+    <span title="Symbols count total">28k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
@@ -449,7 +457,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共5k字</span>
+  <span class="post-count">博客全站共5.1k字</span>
 </div>
         
 
