@@ -1,0 +1,1 @@
+- In dwm, if you want use IDE like pycharm, you should add =export _JAVA_AWT_WM_NONREPARENTING=1= in you =~/.xinitrc=
